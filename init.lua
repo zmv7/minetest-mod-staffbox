@@ -28,7 +28,7 @@ minetest.register_node("staffbox:box", {
     local meta = minetest.get_meta(pos)
     local player = clicker:get_player_name()
     local meta = minetest.get_meta(pos)
-    if intable(staff,player) then
+    if intable(staffs,player) then
       minetest.show_formspec(
         player,
         "staffbox:staff",
@@ -64,7 +64,7 @@ minetest.register_node("staffbox:box", {
   end,
   allow_metadata_inventory_take = function(pos, listname, index, stack, player)
     local meta = minetest.get_meta(pos)
-    if not intable(staff,player:get_player_name()) then
+    if not intable(staffs,player:get_player_name()) then
       return 0
     end
     return stack:get_count()
