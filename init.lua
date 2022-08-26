@@ -1,7 +1,6 @@
 local staffbox = {}
-staffs = { --add names in this table
-  "singleplayer"
-
+local staffs = { --add staff nicknames here
+	"singleplayer",
 }
 
 local function intable(table, element)
@@ -16,7 +15,10 @@ end
 minetest.register_node("staffbox:box", {
   paramtype = "light",
   description = "StaffBox",
-  tiles = {"staffbox.png"},
+  tiles = {"staffbox_top.png", "staffbox_tile.png",
+		 "staffbox_tile.png", "staffbox_tile.png",
+		 "staffbox_tile.png", "staffbox.png"},
+  paramtype2 = "facedir",
   after_place_node = function(pos, placer, itemstack)
     local meta = minetest.get_meta(pos)
     meta:set_string("infotext", "StaffBox")
